@@ -2299,6 +2299,7 @@ blockquote {
 	padding: 30px 0;
 	text-align: center;
 	color: #ffffff;
+	float: left;
 }
 
 #footer h3{
