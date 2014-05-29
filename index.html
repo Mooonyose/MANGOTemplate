@@ -42,10 +42,10 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<a href="#" class="logo visible-lg visible-md"><img src="img/logo.jpg" alt="dodolan manuk responsive catalog themes"></a>
+			<a href="#" class="logo visible-lg visible-md"><img src="img/logo.jpg" alt="Consult Mango Logo"></a>
 			<div id="brand" class="visible-lg visible-md">&nbsp;</div>
 			<ul class="nav navbar-nav nav-left">
-			  <li class="active"><a href="index.html">Home  </a></li>
+			  <li class="dropdown"><a href="index.html">Home  </a></li>
 			  <li><a href="about.html">About</a></li>
 			  <li class="dropdown">
 				<a href="profile.html">Team</a>
@@ -62,7 +62,6 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
     <!-- begin:slider -->
     <div id="home">
       <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
@@ -195,7 +194,7 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-6 col-xs-12 pricing-table">
 		            <ul class="list-unstyled">
-		              <li class="head">Basic Plan</li>
+		              <li class="head">Economy</li>
 		              <li class="price"><sup>$</sup> 4.70 <p>Monthly</p><p></p></li>
 		              <li>Sego kucing sambel teri</li>
 		              <li>Sate usus ro mendoan</li>
@@ -205,7 +204,7 @@
 		        </div>
 				<div class="col-md-3 col-sm-6 col-xs-12 pricing-table">
 		            <ul class="list-unstyled">
-		              <li class="head">Basic Plan</li>
+		              <li class="head">Deluxe</li>
 		              <li class="price"><sup>$</sup> 4.70 <p>Monthly</p><p></p></li>
 		              <li>Sego kucing sambel teri</li>
 		              <li>Sate usus ro mendoan</li>
@@ -215,7 +214,7 @@
 		        </div>
 				<div class="col-md-3 col-sm-6 col-xs-12 pricing-table">
 		            <ul class="list-unstyled">
-		              <li class="head">Basic Plan</li>
+		              <li class="head">Ultimate</li>
 		              <li class="price"><sup>$</sup> 4.70 <p>Monthly</p><p></p></li>
 		              <li>Sego kucing sambel teri</li>
 		              <li>Sate usus ro mendoan</li>
@@ -225,18 +224,78 @@
 		        </div>
 				<div class="col-md-3 col-sm-6 col-xs-12 pricing-table">
 		            <ul class="list-unstyled">
-		              <li class="head">Basic Plan</li>
+		              <li class="head">Custom</li>
 		              <li class="price"><sup>$</sup> 4.70 <p>Monthly</p><p></p></li>
 		              <li>Sego kucing sambel teri</li>
 		              <li>Sate usus ro mendoan</li>
 		              <li>Teh Panas</li>
+		              <li>
+		              		<div id="dd" class="wrapper-dropdown-5" tabindex="1">Service plan
+    							<ul class="dropdown">
+
+    								<!-- icon-style will be a css method, but is currently not created -->
+	        						<li><a href="#"><i class="icon-style"></i>Profile</a></li>
+	        						<li><a href="#"><i class="icon-style"></i>Settings</a></li>
+	        						<li><a href="#"><i class="icon-style"></i>Log out</a></li>
+    							</ul>
+							</div>
+		              </li>
 		              <li class="foot"><a href="#" class="btn btn-warning btn-larges">Sign Up</a></li>
 		            </ul>
 		        </div>
 			</div>
 		</div>
 	<!-- end:pricing -->
-		<div id = "catalogue" > </div>
+		
+	<!-- jQuery if needed -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		function DropDown(el) {
+			this.dd = el;
+			this.placeholder = this.dd.children('span');
+			this.opts = this.dd.find('ul.dropdown > li');
+			this.val = '';
+			this.index = -1;
+			this.initEvents();
+		}
+		DropDown.prototype = {
+			initEvents : function() {
+				var obj = this;
+
+				obj.dd.on('click', function(event){
+					$(this).toggleClass('active');
+					return false;
+				});
+
+				obj.opts.on('click',function(){
+					var opt = $(this);
+					obj.val = opt.text();
+					obj.index = opt.index();
+					obj.placeholder.text('Gender: ' + obj.val);
+				});
+			},
+			getValue : function() {
+				return this.val;
+			},
+			getIndex : function() {
+				return this.index;
+			}
+		}
+
+		$(function() {
+
+			var dd = new DropDown( $('#dd') );
+
+			$(document).click(function() {
+				// all dropdowns
+				$('.wrapper-dropdown-1').removeClass('active');
+			});
+
+		});
+		
+	</script>
+
 	<!-- begin:testimoni -->
 	<div id="testimoni">
 		<div class="container">
